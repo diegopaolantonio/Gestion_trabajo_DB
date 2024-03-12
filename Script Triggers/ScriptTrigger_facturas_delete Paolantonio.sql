@@ -16,4 +16,4 @@ CREATE TRIGGER tr_log_facturas_eliminadas
 AFTER DELETE ON facturas
 FOR EACH ROW
 INSERT INTO log_facturas_eliminadas (nro_factura, id_proyecto, monto, log_user, fecha_hora, estado)
-VALUES (OLD.nro_factura, OLD.id_proyecto, OLD.monto, USER(), CURRENT_TIMESTAMP());
+VALUES (OLD.nro_factura, OLD.id_proyecto, OLD.monto, USER(), CURRENT_TIMESTAMP(), OLD.estado);

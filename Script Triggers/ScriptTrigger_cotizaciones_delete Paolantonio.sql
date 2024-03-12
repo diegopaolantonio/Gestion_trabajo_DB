@@ -17,4 +17,4 @@ CREATE TRIGGER tr_log_cotizaciones_eliminadas
 AFTER DELETE ON cotizaciones
 FOR EACH ROW
 INSERT INTO log_cotizaciones_eliminadas (nro_cotizacion, cuit_cliente, id_usuario, monto, log_user, fecha_hora, estado)
-VALUES (OLD.nro_cotizacion, OLD.cuit_cliente, OLD.id_usuario, OLD.monto, USER(), CURRENT_TIMESTAMP());
+VALUES (OLD.nro_cotizacion, OLD.cuit_cliente, OLD.id_usuario, OLD.monto, USER(), CURRENT_TIMESTAMP(), OLD.estado);

@@ -16,6 +16,4 @@ CREATE TRIGGER tr_log_cotizaciones_nuevas
 AFTER INSERT ON cotizaciones
 FOR EACH ROW
 INSERT INTO log_cotizaciones_nuevas (nro_cotizacion, cuit_cliente, id_usuario, log_user, fecha_hora, estado)
-VALUES (NEW.nro_cotizacion, NEW.cuit_cliente, NEW.id_usuario, USER(), CURRENT_TIMESTAMP());
-
-
+VALUES (NEW.nro_cotizacion, NEW.cuit_cliente, NEW.id_usuario, USER(), CURRENT_TIMESTAMP(), NEW.estado);
